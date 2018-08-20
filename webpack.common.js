@@ -1,6 +1,5 @@
 const path = require('path')
 const HmtlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -12,8 +11,7 @@ module.exports = {
         new HmtlWebpackPlugin({
             template: 'index.html',
             inject: 'head'
-        }),
-        new CleanWebpackPlugin('dist')
+        })
     ],
     module: {
         rules: [
