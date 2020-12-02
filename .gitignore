@@ -1,4 +1,8 @@
+# os
+.DS_Store
 # package
 dist
 node_modules
 package-lock.json
+*.lock
+*.log
