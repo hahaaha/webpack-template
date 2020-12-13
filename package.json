@@ -2,6 +2,9 @@
   "name": "webpack-template",
   "version": "1.0.0",
   "description": "",
+  "bin": {
+    "webtem": "src/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --module-reason --config webpack.dev.js",
