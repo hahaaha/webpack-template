@@ -8,7 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --module-reason --config webpack.dev.js",
-    "build": "webpack --module-reason --config webpack.prod.js"
+    "build": "webpack --module-reason --config webpack.prod.js",
+    "lint": "eslint 'bin/**/*.js'",
+    "prettier": "prettier --write --config .prettierrc.js \"{bin,src,test,cypress,build}/**/*.{js,ts}\""
   },
   "author": "hahaaha",
   "license": "ISC",
@@ -20,9 +22,14 @@
     "css-loader": "^1.0.0",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-formatter-pretty": "^4.0.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "style-loader": "^0.22.1",
     "webpack": "^5.9.0",
@@ -38,5 +45,16 @@
     "handlebars": "^4.7.6",
     "inquirer": "^7.3.3",
     "metalsmith": "^2.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.{ts,js}": [
+          "npm run all-check",
+          "git add ."
+        ]
+      }
+    }
   }
 }
