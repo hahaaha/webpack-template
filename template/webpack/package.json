@@ -1,6 +1,6 @@
 {
-    "name": "webpack-template",
-    "version": "1.0.0",
+    "name": "{{name}}",
+    "version": "{{version}}",
     "description": "",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
