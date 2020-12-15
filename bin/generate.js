@@ -1,7 +1,6 @@
-const async = require('async')
 const Metalsmith = require('metalsmith')
 const inquirer = require('inquirer')
-const render = require('consolidate').handlebars.render
+const Handlebars = require('handlebars')
 
 module.exports = function generate() {
     Metalsmith('./')
@@ -29,10 +28,6 @@ module.exports = function generate() {
                 },
             ])
             .then(answers => {
-                // answers.forEach((index,value) => {
-                //     console.log(index)
-                // })
-                console.log(answers)
                 const keys = Object.keys(answers)
                 keys.forEach(v => {
                     metadata[v] = answers[v]
@@ -42,18 +37,12 @@ module.exports = function generate() {
     }
 
     function template(files, metalsmith, done) {
-        var keys = Object.keys(files)
-        var metadata = metalsmith.metadata()
-
-        async.each(keys, run, done)
-
-        function run(file, done) {
-            var str = files[file].contents.toString()
-            render(str, metadata, function (err, res) {
-                if (err) return done(err)
-                files[file].contents = new Buffer(res)
-                done()
-            })
-        }
+        const metadata = metalsmith.metadata()
+        const source = files['package.json'].contents.toString()
+        const template = Handlebars.compile(source)
+        const res = template(metadata)
+        console.log(res)
+        files['package.json'].contents = new Buffer.from(res)
+        done()
     }
 }
