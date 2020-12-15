@@ -48,13 +48,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "lint-staged": {
-        "*.{ts,js}": [
-          "npm run all-check",
-          "git add ."
-        ]
-      }
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "git add ."
+    ]
   }
 }
