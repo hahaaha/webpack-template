@@ -4,6 +4,6 @@
 dist
 node_modules
 package-lock.json
-*.lock
+package.lock
 *.log
 build/
