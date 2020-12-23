@@ -8,22 +8,13 @@ module.exports = {
     },
     target: ["node"],
     resolve: {
-        extensions: [".ts", ".js", ".json"],
-        fallback: {
-            "path": false,
-            "assert": false,
-            "stream": false,
-            "buffer": false,
-            "crypto": false,
-            "os": false,
-            "vm": false,
-            "tty": false,
-            "constants": false
-        },
-        alias: {
-            handlebars: 'handlebars/dist/handlebars.min.js',
-        }
+        extensions: [".ts", ".js", ".json"]
     },
+    externals: {
+        metalsmith: "commonjs2 metalsmith",
+        handlebars: "handlebars"
+    },
+    devtool: "cheap-module-source-map",
     module: {
         rules: [
             {
@@ -31,10 +22,6 @@ module.exports = {
                 use: ["ts-loader"],
                 include: /src/,
                 exclude: /node_modules/
-            },
-            {
-                test: /\.coffee$/,
-                loader: 'coffee-loader',
             }
         ]
     }

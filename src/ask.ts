@@ -15,7 +15,7 @@ module.exports = () => {
                     message: 'project version',
                 },
             ])
-            .then(answers => {
+            .then((answers: any) => {
                 const keys = Object.keys(answers)
                 keys.forEach(key => {
                     if (key === "name") {

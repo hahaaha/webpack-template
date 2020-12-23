@@ -8,14 +8,14 @@ module.exports = async function generate() {
     Metalsmith(config.dir)
         .source(config.source)
         .destination(config.destination)
-        .clean(false)
         .use(template)
-        .build(err => {
+        .clean(false)
+        .build((err: any) => {
             if (err) throw err
             console.log('build finsished')
         })
 
-    function template(files, metalsmith, done) {
+    function template(files: any, metalsmith: any, done: any) {
         const data = {
             name: config.name,
             version: config.version
