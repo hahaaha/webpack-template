@@ -1,8 +1,8 @@
-const defaultConfig = require('./config')
-const { Command } = require('commander')
+import defaultConfig from './config'
+import { Command } from 'commander'
 const program = new Command()
-const generate = require('../generate.js')
-class cli {
+import generate from '../generate'
+class webcli {
     config
     constructor() {
         this.config = defaultConfig
@@ -26,5 +26,5 @@ class cli {
     }
 }
 
-module.exports = cli
+export default webcli
 
