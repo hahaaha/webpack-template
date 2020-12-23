@@ -1,7 +1,7 @@
 const defaultConfig = require('./config')
 const { Command } = require('commander')
 const program = new Command()
-const generate = require('../generate.js')
+const generate = require('../generate')
 class cli {
     config
     constructor() {

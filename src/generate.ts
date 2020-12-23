@@ -23,7 +23,7 @@ module.exports = async function generate() {
         const source = files['package.json'].contents.toString()
         const template = Handlebars.compile(source)
         const res = template(data)
-        files['package.json'].contents = new Buffer.from(res)
+        files['package.json'].contents = Buffer.from(res)
         done()
     }
 }

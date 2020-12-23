@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-const cli = require('./core/index')
+const cli = require('../src/core/index')
 
 const webtem = new cli()
 webtem.start()
