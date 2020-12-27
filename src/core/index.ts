@@ -1,7 +1,8 @@
-const defaultConfig = require('./config')
-const { Command } = require('commander')
+import defaultConfig from './config'
+import { Command } from 'commander'
+import generate from '../generate'
 const program = new Command()
-const generate = require('../generate')
+
 class cli {
     config
     constructor() {

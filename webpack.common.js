@@ -12,7 +12,8 @@ module.exports = {
     },
     externals: {
         metalsmith: "commonjs2 metalsmith",
-        handlebars: "handlebars"
+        handlebars: "handlebars",
+        inquirer: "inquirer"
     },
     devtool: "cheap-module-source-map",
     module: {

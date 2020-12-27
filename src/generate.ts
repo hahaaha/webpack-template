@@ -1,9 +1,9 @@
-const Metalsmith = require('metalsmith')
-const Handlebars = require('handlebars')
-const ask = require('./ask')
-const config = require('./core/config')
+import Metalsmith from 'metalsmith'
+import Handlebars from 'handlebars'
+import ask from './ask'
+import config from './core/config'
 
-module.exports = async function generate() {
+export default async function generate() {
     await ask()
     Metalsmith(config.dir)
         .source(config.source)
