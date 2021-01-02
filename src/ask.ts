@@ -1,6 +1,9 @@
 import inquirer from 'inquirer'
 import config from './core/config'
-export default () => {
+/**
+ * @param name 默认项目名称
+ */
+export default (name: string) => {
     return new Promise((resolve) => {
         inquirer
             .prompt([
@@ -8,11 +11,13 @@ export default () => {
                     type: 'input',
                     name: 'name',
                     message: `input project name`,
+                    default: name
                 },
                 {
                     type: 'input',
                     name: 'version',
                     message: 'project version',
+                    default: '1.0.0'
                 },
             ])
             .then((answers: any) => {
