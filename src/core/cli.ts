@@ -1,14 +1,16 @@
 import defaultConfig from './config'
 import { Command } from 'commander'
-const program = new Command()
 import generate from '../generate'
 class webcli {
     config
+    program
     constructor() {
         this.config = defaultConfig
+        this.program = new Command()
     }
     start() {
         const config = this.config
+        const program = this.program
         program.version('0.0.1')
 
         program
@@ -16,10 +18,10 @@ class webcli {
             .option('-g', 'create template')
 
         program
-            .command('create')
+            .command('create <name>')
             .description("create a project")
             .action((name) => {
-                generate()
+                generate(name)
             })
 
         program.parse(process.argv)
