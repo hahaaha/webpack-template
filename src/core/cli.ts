@@ -15,13 +15,16 @@ class webcli {
             .option('-d, --debug', 'output extra debugging')
             .option('-g', 'create template')
 
+        program
+            .command('create')
+            .description("create a project")
+            .action((name) => {
+                generate()
+            })
+
         program.parse(process.argv)
 
         if (program.debug) console.log(program.opts())
-
-        if (program.g) {
-            generate()
-        }
 
     }
 }

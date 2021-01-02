@@ -2,9 +2,14 @@ import Metalsmith from 'metalsmith'
 import Handlebars from 'handlebars'
 import ask from './ask'
 import config from './core/config'
+// import download from 'download-git-repo'
 
 export default async function generate() {
     await ask()
+    // download('litten/hexo-theme-yilia', 'clitest1', (err: any) => {
+    //     console.log(err)
+    //     console.log("download")
+    // })
     Metalsmith(config.dir)
         .source(config.source)
         .destination(config.destination)
