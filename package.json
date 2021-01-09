@@ -1,12 +1,12 @@
 {
   "name": "webtem",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "bin": {
     "webtem": "./dist/index.js"
   },
-  "file": [
+  "files": [
     "dist"
   ],
   "scripts": {
@@ -41,7 +41,8 @@
     "download-git-repo": "^3.0.2",
     "handlebars": "^4.7.6",
     "inquirer": "^7.3.3",
-    "metalsmith": "^2.3.0"
+    "metalsmith": "^2.3.0",
+    "webtem": "^0.0.3"
   },
   "husky": {
     "hooks": {
