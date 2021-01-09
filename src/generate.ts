@@ -13,6 +13,7 @@ export default async function generate(name: string) {
     //     console.log(err)
     //     console.log("download")
     // })
+    console.log(config.source)
     Metalsmith(config.dir)
         .source(config.source)
         .destination(config.destination)
@@ -26,7 +27,10 @@ export default async function generate(name: string) {
     function template(files: any, metalsmith: any, done: any) {
         const data = {
             name: config.name,
-            version: config.version
+            version: config.version,
+            description: config.description,
+            author: config.author,
+            license: config.license
         }
         const source = files['package.json'].contents.toString()
         const template = Handlebars.compile(source)
