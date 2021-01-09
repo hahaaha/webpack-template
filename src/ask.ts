@@ -15,10 +15,25 @@ export default (name: string) => {
                 },
                 {
                     type: 'input',
+                    name: 'description',
+                    message: 'project descript'
+                },
+                {
+                    type: 'input',
                     name: 'version',
                     message: 'project version',
                     default: '1.0.0'
                 },
+                {
+                    type: 'input',
+                    name: 'author',
+                    message: 'project author'
+                },
+                {
+                    type: 'input',
+                    name: 'license',
+                    default: 'MIT'
+                }
             ])
             .then((answers: any) => {
                 const keys = Object.keys(answers)

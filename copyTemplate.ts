@@ -1,3 +1,4 @@
 import * as shell from "shelljs"
 
-shell.cp("-r", "template", "dist/template")
+shell.rm("-rf", "dist/template/")
+shell.cp("-R", "template", "dist/template/")
