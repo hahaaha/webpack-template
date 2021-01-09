@@ -1,0 +1,13 @@
+node_modules
+.vscode/
+src/
+test/
+.prettierrc.js
+package-lock.json
+package.lock
+*.log
+node_modules/
+.eslintignore
+.eslintrc.js
+tsconfig.json
+ 
