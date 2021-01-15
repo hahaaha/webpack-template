@@ -1,6 +1,7 @@
 import defaultConfig from './config'
 import { Command } from 'commander'
 import generate from '../generate'
+import pkg from '../../package.json'
 class webcli {
     config
     program
@@ -11,7 +12,8 @@ class webcli {
     start() {
         const config = this.config
         const program = this.program
-        program.version('0.0.1')
+        const version = pkg.version
+        program.version(version)
 
         program
             .option('-d, --debug', 'output extra debugging')

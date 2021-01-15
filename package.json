@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "bin": {
-    "webtem": "./dist/index.js"
+    "webtem": "./dist/src/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "prettier": "prettier --write --config .prettierrc.js \"{bin,src,test,cypress,build}/**/*.{js,ts}\"",
     "build": "yarn lint && tsc && yarn copy-template",
     "copy-template": "ts-node copyTemplate.ts",
-    "dev": "node ./dist/index.js"
+    "dev": "node ./dist/src/index.js"
   },
   "author": "hahaaha",
   "license": "MIT",
@@ -38,8 +38,7 @@
     "download-git-repo": "^3.0.2",
     "handlebars": "^4.7.6",
     "inquirer": "^7.3.3",
-    "metalsmith": "^2.3.0",
-    "webtem": "^0.0.3"
+    "metalsmith": "^2.3.0"
   },
   "husky": {
     "hooks": {
