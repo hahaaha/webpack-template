@@ -2,6 +2,8 @@ import defaultConfig from './config'
 import { Command } from 'commander'
 import generate from '../generate'
 import pkg from '../../package.json'
+import clone from '../gitClone'
+import path from 'path'
 class webcli {
     config
     program
@@ -20,11 +22,20 @@ class webcli {
             .option('-g', 'create template')
 
         program
-            .command('create <name>')
-            .description("create a project")
-            .action((name) => {
+            .command('create <template> <name>')
+            .description("根据相应的模板选择相应的项目")
+            .action((template, name) => {
+                config.source = path.join(config.source, `../${template}`)
                 generate(name)
             })
+
+        // TODO: 每次重装都会清理掉模板，需要解决
+        program
+            .command('set <address>')
+            .description('设置新的模板')
+            .action((address) => [
+                clone(address)
+            ])
 
         program.parse(process.argv)
 
