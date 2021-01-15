@@ -3,7 +3,7 @@ import config from './core/config'
 /**
  * @param name 默认项目名称
  */
-export default (name: string) => {
+export default (name: string): Promise<any> => {
     return new Promise((resolve) => {
         inquirer
             .prompt([
@@ -35,7 +35,7 @@ export default (name: string) => {
                     default: 'MIT'
                 }
             ])
-            .then((answers: any) => {
+            .then((answers: Record<string, unknown>) => {
                 const keys = Object.keys(answers)
                 keys.forEach((key) => {
                     if (key === "name") {

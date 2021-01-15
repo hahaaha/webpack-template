@@ -2,18 +2,13 @@ import Metalsmith from 'metalsmith'
 import Handlebars from 'handlebars'
 import ask from './ask'
 import config from './core/config'
-// import download from 'download-git-repo'
 /**
  * 生成项目结构
  * @param name 默认的项目名称
  */
 export default async function generate(name: string) {
     await ask(name)
-    // download('litten/hexo-theme-yilia', 'clitest1', (err: any) => {
-    //     console.log(err)
-    //     console.log("download")
-    // })
-    console.log(config.source)
+
     Metalsmith(config.dir)
         .source(config.source)
         .destination(config.destination)
