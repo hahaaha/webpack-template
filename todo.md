@@ -1,0 +1,3 @@
+- support git clone 
+- auto update version
+- support custom QA
