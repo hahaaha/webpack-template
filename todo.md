@@ -1,3 +1,3 @@
-- support git clone 
-- auto update version
-- support custom QA
+-[x] support git clone 
+-[x] auto update version
+-[] support custom QA

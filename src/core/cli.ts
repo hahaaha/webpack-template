@@ -4,6 +4,7 @@ import generate from '../generate'
 import pkg from '../../package.json'
 import clone from '../gitClone'
 import path from 'path'
+import { r, w } from '../utils'
 class webcli {
     config
     program
@@ -33,9 +34,15 @@ class webcli {
         program
             .command('set <address>')
             .description('设置新的模板')
-            .action((address) => [
-                clone(address)
-            ])
+            .action(async (address) => {
+                const msg = await clone(address)
+                if (msg === "ok") {
+                    const config = r()
+                    const repo = config.repo
+                    repo.push(address)
+                    w(config)
+                }
+            })
 
         program.parse(process.argv)
 
