@@ -3,7 +3,7 @@ import config from './core/config'
 /**
  * @param name 默认项目名称
  */
-export default (name: string): Promise<any> => {
+export default (name: string): Promise<string> => {
     return new Promise((resolve) => {
         inquirer
             .prompt([

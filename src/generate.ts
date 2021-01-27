@@ -6,7 +6,7 @@ import config from './core/config'
  * 生成项目结构
  * @param name 默认的项目名称
  */
-export default async function generate(name: string) {
+export default async function generate(name: string): Promise<void> {
     await ask(name)
 
     Metalsmith(config.dir)
@@ -14,12 +14,12 @@ export default async function generate(name: string) {
         .destination(config.destination)
         .clean(false)
         .use(template)
-        .build((err: any) => {
+        .build((err: Error) => {
             if (err) throw err
             console.log('build finsished')
         })
 
-    function template(files: any, metalsmith: any, done: any) {
+    function template(files: string[], metalsmith, done): void {
         const data = {
             name: config.name,
             version: config.version,

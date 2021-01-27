@@ -14,7 +14,7 @@ const config: userConfig = {
  * 将content中的内容写入到gen文件中
  * @param {userConfig} content 需要写入的配置文件的内容
  */
-const w = (configContent: userConfig = config) => {
+const w = (configContent: userConfig = config): void => {
     const content = JSON.stringify(configContent)
     fs.writeFile(gen, content, (err) => {
         if (err) console.log(err)

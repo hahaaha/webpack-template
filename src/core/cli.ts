@@ -12,7 +12,7 @@ class webcli {
         this.config = defaultConfig
         this.program = new Command()
     }
-    start() {
+    start(): void {
         const config = this.config
         const program = this.program
         const version = pkg.version
